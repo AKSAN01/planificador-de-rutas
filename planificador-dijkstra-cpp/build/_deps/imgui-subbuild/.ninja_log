@@ -1,0 +1,21 @@
+# ninja log v7
+5	111	8165674921630946	imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-mkdir	3551bf466ec61fdc
+5	111	8165674921630946	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-mkdir	3551bf466ec61fdc
+3	3833	8165675446286534	imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-download	fe09752ad14fb8dd
+3	3833	8165675446286534	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-download	fe09752ad14fb8dd
+3834	3994	8165675446357729	imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-update	52026eecc06894ac
+3834	3994	8165675446357729	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-update	52026eecc06894ac
+3994	4080	8165675448744552	imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-patch	d7e63cc49430316a
+3994	4080	8165675448744552	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-patch	d7e63cc49430316a
+4080	4169	8165675449638026	imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-configure	9421ef56841df917
+4080	4169	8165675449638026	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-configure	9421ef56841df917
+4169	4242	8165675450385615	imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-build	c5fb587bbe34d014
+4169	4242	8165675450385615	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-build	c5fb587bbe34d014
+4243	4317	8165675451134301	imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-install	8678765a8ed3f079
+4243	4317	8165675451134301	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-install	8678765a8ed3f079
+4317	4391	8165675451878083	imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-test	681f13077aa5a795
+4317	4391	8165675451878083	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-test	681f13077aa5a795
+4392	4498	8165675452945284	CMakeFiles/imgui-populate-complete	3fd1c03b4d0a5d80
+4392	4498	8165675452945284	imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-done	3fd1c03b4d0a5d80
+4392	4498	8165675452945284	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/CMakeFiles/imgui-populate-complete	3fd1c03b4d0a5d80
+4392	4498	8165675452945284	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/imgui-populate-done	3fd1c03b4d0a5d80

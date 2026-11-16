@@ -1,0 +1,83 @@
+Start testing: Nov 16 16:56 Hora est. Pacífico, Sudamérica
+----------------------------------------------------------
+1/4 Testing: Haversine calcula distancias geograficas y tiempos correctamente
+1/4 Test: Haversine calcula distancias geograficas y tiempos correctamente
+Command: "C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/test_dijkstra.exe" "Haversine calcula distancias geograficas y tiempos correctamente"
+Directory: C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build
+"Haversine calcula distancias geograficas y tiempos correctamente" start time: Nov 16 16:56 Hora est. Pacífico, Sudamérica
+Output:
+----------------------------------------------------------
+Filters: "Haversine calcula distancias geograficas y tiempos correctamente"
+Randomness seeded to: 1942525490
+===============================================================================
+All tests passed (6 assertions in 1 test case)
+
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"Haversine calcula distancias geograficas y tiempos correctamente" end time: Nov 16 16:56 Hora est. Pacífico, Sudamérica
+"Haversine calcula distancias geograficas y tiempos correctamente" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: MinHeap mantiene la propiedad de monticulo binario minimo y soporta decreaseKey
+2/4 Test: MinHeap mantiene la propiedad de monticulo binario minimo y soporta decreaseKey
+Command: "C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/test_dijkstra.exe" "MinHeap mantiene la propiedad de monticulo binario minimo y soporta decreaseKey"
+Directory: C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build
+"MinHeap mantiene la propiedad de monticulo binario minimo y soporta decreaseKey" start time: Nov 16 16:56 Hora est. Pacífico, Sudamérica
+Output:
+----------------------------------------------------------
+Filters: "MinHeap mantiene la propiedad de monticulo binario minimo y soporta decreaseKey"
+Randomness seeded to: 2893797088
+===============================================================================
+All tests passed (22 assertions in 1 test case)
+
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"MinHeap mantiene la propiedad de monticulo binario minimo y soporta decreaseKey" end time: Nov 16 16:56 Hora est. Pacífico, Sudamérica
+"MinHeap mantiene la propiedad de monticulo binario minimo y soporta decreaseKey" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: Algoritmo de Dijkstra calcula rutas optimas por distancia, tiempo y cierres viales
+3/4 Test: Algoritmo de Dijkstra calcula rutas optimas por distancia, tiempo y cierres viales
+Command: "C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/test_dijkstra.exe" "Algoritmo de Dijkstra calcula rutas optimas por distancia\, tiempo y cierres viales"
+Directory: C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build
+"Algoritmo de Dijkstra calcula rutas optimas por distancia, tiempo y cierres viales" start time: Nov 16 16:56 Hora est. Pacífico, Sudamérica
+Output:
+----------------------------------------------------------
+Filters: "Algoritmo de Dijkstra calcula rutas optimas por distancia\, tiempo y cierres viales"
+Randomness seeded to: 187871122
+===============================================================================
+All tests passed (21 assertions in 1 test case)
+
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Algoritmo de Dijkstra calcula rutas optimas por distancia, tiempo y cierres viales" end time: Nov 16 16:56 Hora est. Pacífico, Sudamérica
+"Algoritmo de Dijkstra calcula rutas optimas por distancia, tiempo y cierres viales" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: Carga de dataset real data/bogota.json y calculo de rutas en Bogota
+4/4 Test: Carga de dataset real data/bogota.json y calculo de rutas en Bogota
+Command: "C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/test_dijkstra.exe" "Carga de dataset real data/bogota.json y calculo de rutas en Bogota"
+Directory: C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build
+"Carga de dataset real data/bogota.json y calculo de rutas en Bogota" start time: Nov 16 16:56 Hora est. Pacífico, Sudamérica
+Output:
+----------------------------------------------------------
+Filters: "Carga de dataset real data/bogota.json y calculo de rutas en Bogota"
+Randomness seeded to: 1205264000
+===============================================================================
+All tests passed (9 assertions in 1 test case)
+
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"Carga de dataset real data/bogota.json y calculo de rutas en Bogota" end time: Nov 16 16:56 Hora est. Pacífico, Sudamérica
+"Carga de dataset real data/bogota.json y calculo de rutas en Bogota" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 16 16:56 Hora est. Pacífico, Sudamérica

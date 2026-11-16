@@ -1,0 +1,37 @@
+# ninja log v7
+3	81	8165672879161151	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-mkdir	41e2222ebe64df86
+3	81	8165672879161151	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-mkdir	41e2222ebe64df86
+82	3617	8165672914529576	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-download	6f694ecdcbaa082e
+82	3617	8165672914529576	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-download	6f694ecdcbaa082e
+3617	3802	8165672914594726	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	9f02974fe7a8662
+3617	3802	8165672914594726	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	9f02974fe7a8662
+3802	3883	8165672917188289	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	f2e22dce73f527cd
+3802	3883	8165672917188289	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	f2e22dce73f527cd
+3883	3958	8165672917929810	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	99111beefff31266
+3883	3958	8165672917929810	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	99111beefff31266
+3958	4032	8165672918678507	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	9fe9a67bdafb246c
+3958	4032	8165672918678507	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	9fe9a67bdafb246c
+4032	4108	8165672919436507	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	c7801eabf5a86d5c
+4032	4108	8165672919436507	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	c7801eabf5a86d5c
+4108	4185	8165672920205394	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	ca8dbd25be424a65
+4108	4185	8165672920205394	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	ca8dbd25be424a65
+4185	4289	8165672921246542	CMakeFiles/catch2-populate-complete	ccd898d91287e3e5
+4185	4289	8165672921246542	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	ccd898d91287e3e5
+4185	4289	8165672921246542	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/CMakeFiles/catch2-populate-complete	ccd898d91287e3e5
+4185	4289	8165672921246542	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	ccd898d91287e3e5
+3	161	8165675478651731	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	9f02974fe7a8662
+3	161	8165675478651731	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	9f02974fe7a8662
+161	242	8165675480975885	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	f2e22dce73f527cd
+161	242	8165675480975885	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	f2e22dce73f527cd
+242	322	8165675481783412	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	99111beefff31266
+242	322	8165675481783412	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	99111beefff31266
+322	400	8165675482565571	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	9fe9a67bdafb246c
+322	400	8165675482565571	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	9fe9a67bdafb246c
+401	477	8165675483334462	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	c7801eabf5a86d5c
+401	477	8165675483334462	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	c7801eabf5a86d5c
+477	550	8165675484064042	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	ca8dbd25be424a65
+477	550	8165675484064042	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	ca8dbd25be424a65
+550	649	8165675485044886	CMakeFiles/catch2-populate-complete	ccd898d91287e3e5
+550	649	8165675485044886	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	ccd898d91287e3e5
+550	649	8165675485044886	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/CMakeFiles/catch2-populate-complete	ccd898d91287e3e5
+550	649	8165675485044886	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	ccd898d91287e3e5

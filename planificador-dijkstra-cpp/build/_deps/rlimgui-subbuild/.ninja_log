@@ -1,0 +1,37 @@
+# ninja log v7
+2	83	8165672828529059	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-mkdir	d03045c8447af7c5
+2	83	8165672828529059	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-mkdir	d03045c8447af7c5
+84	2590	8165672853605932	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-download	c11de6b2ff608db1
+84	2590	8165672853605932	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-download	c11de6b2ff608db1
+2591	4190	8165672853677995	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-update	11aef48f7cf0fb8d
+2591	4190	8165672853677995	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-update	11aef48f7cf0fb8d
+4190	4269	8165672870400195	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-patch	70e2053c644d7b68
+4190	4269	8165672870400195	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-patch	70e2053c644d7b68
+4269	4344	8165672871150693	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-configure	b79820f042ff1313
+4269	4344	8165672871150693	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-configure	b79820f042ff1313
+4344	4422	8165672871932199	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-build	88f58f6a681fb7fb
+4344	4422	8165672871932199	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-build	88f58f6a681fb7fb
+4422	4497	8165672872685691	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-install	b0a054d44fd9d5c8
+4422	4497	8165672872685691	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-install	b0a054d44fd9d5c8
+4497	4573	8165672873440037	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-test	878c1b2235f9f1e1
+4497	4573	8165672873440037	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-test	878c1b2235f9f1e1
+4573	4679	8165672874500229	CMakeFiles/rlimgui-populate-complete	da5f50ac587b6062
+4573	4679	8165672874500229	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-done	da5f50ac587b6062
+4573	4679	8165672874500229	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/CMakeFiles/rlimgui-populate-complete	da5f50ac587b6062
+4573	4679	8165672874500229	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-done	da5f50ac587b6062
+3	1551	8165675455351608	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-update	11aef48f7cf0fb8d
+3	1551	8165675455351608	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-update	11aef48f7cf0fb8d
+1551	1629	8165675471535799	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-patch	70e2053c644d7b68
+1551	1629	8165675471535799	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-patch	70e2053c644d7b68
+1629	1706	8165675472294919	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-configure	b79820f042ff1313
+1629	1706	8165675472294919	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-configure	b79820f042ff1313
+1706	1783	8165675473103342	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-build	88f58f6a681fb7fb
+1706	1783	8165675473103342	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-build	88f58f6a681fb7fb
+1784	1857	8165675473837478	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-install	b0a054d44fd9d5c8
+1784	1857	8165675473837478	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-install	b0a054d44fd9d5c8
+1857	1930	8165675474557046	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-test	878c1b2235f9f1e1
+1857	1930	8165675474557046	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-test	878c1b2235f9f1e1
+1930	2036	8165675475619298	CMakeFiles/rlimgui-populate-complete	da5f50ac587b6062
+1930	2036	8165675475619298	rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-done	da5f50ac587b6062
+1930	2036	8165675475619298	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/CMakeFiles/rlimgui-populate-complete	da5f50ac587b6062
+1930	2036	8165675475619298	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/rlimgui-subbuild/rlimgui-populate-prefix/src/rlimgui-populate-stamp/rlimgui-populate-done	da5f50ac587b6062

@@ -1,0 +1,5 @@
+Haversine calcula distancias geograficas y tiempos correctamente 2 0.045555
+MinHeap mantiene la propiedad de monticulo binario minimo y soporta decreaseKey 2 0.0099908
+Algoritmo de Dijkstra calcula rutas optimas por distancia, tiempo y cierres viales 2 0.0097399
+Carga de dataset real data/bogota.json y calculo de rutas en Bogota 2 0.0142142
+---

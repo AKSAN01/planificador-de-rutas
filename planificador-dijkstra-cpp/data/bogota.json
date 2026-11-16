@@ -1,0 +1,586 @@
+{
+  "ciudad": "Bogotá D.C., Colombia",
+  "descripcion": "Red vial principal y lugares emblemáticos de Bogotá para el Planificador de Rutas con Dijkstra (UDistrital - Ciencias de la Computación I)",
+  "bounding_box": {
+    "lat_min": 4.555,
+    "lat_max": 4.770,
+    "lon_min": -74.165,
+    "lon_max": -74.015
+  },
+  "lugares": [
+    {
+      "id": 0,
+      "nombre": "Plaza de Bolívar",
+      "localidad": "La Candelaria",
+      "latitud": 4.5981,
+      "longitud": -74.0758
+    },
+    {
+      "id": 1,
+      "nombre": "Museo del Oro",
+      "localidad": "Santa Fe",
+      "latitud": 4.6018,
+      "longitud": -74.0720
+    },
+    {
+      "id": 2,
+      "nombre": "Cerro de Monserrate (Teleférico)",
+      "localidad": "Santa Fe",
+      "latitud": 4.6056,
+      "longitud": -74.0555
+    },
+    {
+      "id": 3,
+      "nombre": "UDistrital - Sede Macarena",
+      "localidad": "Santa Fe",
+      "latitud": 4.6135,
+      "longitud": -74.0638
+    },
+    {
+      "id": 4,
+      "nombre": "Centro Internacional (Torre Colpatria)",
+      "localidad": "Santa Fe",
+      "latitud": 4.6110,
+      "longitud": -74.0703
+    },
+    {
+      "id": 5,
+      "nombre": "UDistrital - Facultad de Ingeniería (Calle 40)",
+      "localidad": "Chapinero",
+      "latitud": 4.6283,
+      "longitud": -74.0654
+    },
+    {
+      "id": 6,
+      "nombre": "Universidad Nacional de Colombia",
+      "localidad": "Teusaquillo",
+      "latitud": 4.6382,
+      "longitud": -74.0840
+    },
+    {
+      "id": 7,
+      "nombre": "Corferias / Ágora Bogotá",
+      "localidad": "Teusaquillo",
+      "latitud": 4.6295,
+      "longitud": -74.0933
+    },
+    {
+      "id": 8,
+      "nombre": "Estadio El Campín / Movistar Arena",
+      "localidad": "Teusaquillo",
+      "latitud": 4.6459,
+      "longitud": -74.0775
+    },
+    {
+      "id": 9,
+      "nombre": "Parque Metropolitano Simón Bolívar",
+      "localidad": "Teusaquillo / Barrios Unidos",
+      "latitud": 4.6581,
+      "longitud": -74.0939
+    },
+    {
+      "id": 10,
+      "nombre": "Jardín Botánico José Celestino Mutis",
+      "localidad": "Engativá",
+      "latitud": 4.6681,
+      "longitud": -74.1002
+    },
+    {
+      "id": 11,
+      "nombre": "Terminal de Transporte Salitre",
+      "localidad": "Fontibón",
+      "latitud": 4.6528,
+      "longitud": -74.1146
+    },
+    {
+      "id": 12,
+      "nombre": "Aeropuerto Internacional El Dorado",
+      "localidad": "Fontibón / Engativá",
+      "latitud": 4.7016,
+      "longitud": -74.1469
+    },
+    {
+      "id": 13,
+      "nombre": "Zona T / Calle 85",
+      "localidad": "Chapinero",
+      "latitud": 4.6669,
+      "longitud": -74.0545
+    },
+    {
+      "id": 14,
+      "nombre": "Parque de la 93",
+      "localidad": "Chapinero",
+      "latitud": 4.6768,
+      "longitud": -74.0483
+    },
+    {
+      "id": 15,
+      "nombre": "Plaza Fundacional de Usaquén",
+      "localidad": "Usaquén",
+      "latitud": 4.6951,
+      "longitud": -74.0308
+    },
+    {
+      "id": 16,
+      "nombre": "Portal del Norte (Calle 175)",
+      "localidad": "Usaquén / Suba",
+      "latitud": 4.7546,
+      "longitud": -74.0460
+    },
+    {
+      "id": 17,
+      "nombre": "Portal de Suba",
+      "localidad": "Suba",
+      "latitud": 4.7469,
+      "longitud": -74.0948
+    },
+    {
+      "id": 18,
+      "nombre": "Portal de la 80",
+      "localidad": "Engativá",
+      "latitud": 4.7098,
+      "longitud": -74.1106
+    },
+    {
+      "id": 19,
+      "nombre": "Portal de las Américas",
+      "localidad": "Kennedy",
+      "latitud": 4.6295,
+      "longitud": -74.1520
+    },
+    {
+      "id": 20,
+      "nombre": "Portal del Sur",
+      "localidad": "Bosa / Ciudad Bolívar",
+      "latitud": 4.5964,
+      "longitud": -74.1502
+    },
+    {
+      "id": 21,
+      "nombre": "UDistrital - Facultad Tecnológica",
+      "localidad": "Ciudad Bolívar",
+      "latitud": 4.5721,
+      "longitud": -74.1578
+    }
+  ],
+  "vias": [
+    {
+      "id": 0,
+      "origen": 0,
+      "destino": 1,
+      "nombre_via": "Carrera Séptima Peatonal / Eje Ambiental",
+      "distancia_km": 0.65,
+      "velocidad_kmh": 18.0,
+      "factor_trafico": 1.15,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 1,
+      "origen": 1,
+      "destino": 2,
+      "nombre_via": "Eje Ambiental - Av. Jiménez / Circunvalar",
+      "distancia_km": 2.10,
+      "velocidad_kmh": 28.0,
+      "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 2,
+      "origen": 2,
+      "destino": 3,
+      "nombre_via": "Av. Circunvalar (Tramo Monserrate - Macarena)",
+      "distancia_km": 1.45,
+      "velocidad_kmh": 42.0,
+      "factor_trafico": 1.05,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 3,
+      "origen": 1,
+      "destino": 4,
+      "nombre_via": "Carrera Séptima / Carrera 10 (Centro)",
+      "distancia_km": 1.15,
+      "velocidad_kmh": 25.0,
+      "factor_trafico": 1.30,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 4,
+      "origen": 4,
+      "destino": 3,
+      "nombre_via": "Calle 26 / Ascenso Bosque Izquierdo",
+      "distancia_km": 0.95,
+      "velocidad_kmh": 30.0,
+      "factor_trafico": 1.10,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 5,
+      "origen": 3,
+      "destino": 5,
+      "nombre_via": "Av. Circunvalar / Carrera Séptima (Macarena - Cll 40)",
+      "distancia_km": 1.90,
+      "velocidad_kmh": 36.0,
+      "factor_trafico": 1.15,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 6,
+      "origen": 4,
+      "destino": 5,
+      "nombre_via": "Av. Caracas / Carrera 13 (Centro Int. - Cll 40)",
+      "distancia_km": 2.15,
+      "velocidad_kmh": 28.0,
+      "factor_trafico": 1.40,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 7,
+      "origen": 4,
+      "destino": 7,
+      "nombre_via": "Av. El Dorado (Calle 26: Centro - Corferias)",
+      "distancia_km": 3.10,
+      "velocidad_kmh": 48.0,
+      "factor_trafico": 1.10,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 8,
+      "origen": 5,
+      "destino": 6,
+      "nombre_via": "Calle 45 (Chapinero - Universidad Nacional)",
+      "distancia_km": 2.40,
+      "velocidad_kmh": 30.0,
+      "factor_trafico": 1.25,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 9,
+      "origen": 7,
+      "destino": 6,
+      "nombre_via": "Av. NQS / Carrera 30 (Corferias - UNAL)",
+      "distancia_km": 1.65,
+      "velocidad_kmh": 45.0,
+      "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 10,
+      "origen": 6,
+      "destino": 8,
+      "nombre_via": "Av. NQS / Carrera 30 (UNAL - El Campín)",
+      "distancia_km": 1.25,
+      "velocidad_kmh": 45.0,
+      "factor_trafico": 1.15,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 11,
+      "origen": 5,
+      "destino": 8,
+      "nombre_via": "Calle 53 / Calle 57 (Chapinero - El Campín)",
+      "distancia_km": 2.50,
+      "velocidad_kmh": 32.0,
+      "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 12,
+      "origen": 8,
+      "destino": 9,
+      "nombre_via": "Calle 63 (El Campín - Parque Simón Bolívar)",
+      "distancia_km": 2.35,
+      "velocidad_kmh": 40.0,
+      "factor_trafico": 1.10,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 13,
+      "origen": 6,
+      "destino": 9,
+      "nombre_via": "Carrera 50 / Av. La Esmeralda",
+      "distancia_km": 2.65,
+      "velocidad_kmh": 38.0,
+      "factor_trafico": 1.15,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 14,
+      "origen": 9,
+      "destino": 10,
+      "nombre_via": "Av. Calle 63 / Av. Rojas (Simón Bolívar - Jardín Botánico)",
+      "distancia_km": 1.40,
+      "velocidad_kmh": 35.0,
+      "factor_trafico": 1.05,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 15,
+      "origen": 7,
+      "destino": 11,
+      "nombre_via": "Av. El Dorado / Av. La Esperanza (Corferias - Salitre)",
+      "distancia_km": 3.70,
+      "velocidad_kmh": 44.0,
+      "factor_trafico": 1.15,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 16,
+      "origen": 9,
+      "destino": 11,
+      "nombre_via": "Av. Carrera 68 (Parque Simón Bolívar - Terminal Salitre)",
+      "distancia_km": 2.55,
+      "velocidad_kmh": 38.0,
+      "factor_trafico": 1.30,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 17,
+      "origen": 10,
+      "destino": 11,
+      "nombre_via": "Av. Boyacá / Calle 63 (Jardín Botánico - Salitre)",
+      "distancia_km": 2.40,
+      "velocidad_kmh": 40.0,
+      "factor_trafico": 1.25,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 18,
+      "origen": 11,
+      "destino": 12,
+      "nombre_via": "Av. El Dorado - Calle 26 (Salitre - Aeropuerto El Dorado)",
+      "distancia_km": 6.60,
+      "velocidad_kmh": 58.0,
+      "factor_trafico": 1.05,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 19,
+      "origen": 5,
+      "destino": 13,
+      "nombre_via": "Carrera Séptima / Carrera 11 (Chapinero - Zona T)",
+      "distancia_km": 4.60,
+      "velocidad_kmh": 32.0,
+      "factor_trafico": 1.35,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 20,
+      "origen": 8,
+      "destino": 13,
+      "nombre_via": "Av. NQS / Calle 72 / Carrera 15 (El Campín - Zona T)",
+      "distancia_km": 3.60,
+      "velocidad_kmh": 35.0,
+      "factor_trafico": 1.25,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 21,
+      "origen": 13,
+      "destino": 14,
+      "nombre_via": "Carrera 11 / Carrera 15 (Zona T - Parque de la 93)",
+      "distancia_km": 1.40,
+      "velocidad_kmh": 28.0,
+      "factor_trafico": 1.25,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 22,
+      "origen": 14,
+      "destino": 15,
+      "nombre_via": "Carrera Séptima / Av. Calle 100 (Parque 93 - Usaquén)",
+      "distancia_km": 3.10,
+      "velocidad_kmh": 34.0,
+      "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 23,
+      "origen": 9,
+      "destino": 14,
+      "nombre_via": "Av. Carrera 68 / Calle 100 (Simón Bolívar - Parque 93)",
+      "distancia_km": 5.80,
+      "velocidad_kmh": 42.0,
+      "factor_trafico": 1.25,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 24,
+      "origen": 14,
+      "destino": 16,
+      "nombre_via": "Autopista Norte (Calle 94 - Portal del Norte)",
+      "distancia_km": 8.90,
+      "velocidad_kmh": 52.0,
+      "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 25,
+      "origen": 15,
+      "destino": 16,
+      "nombre_via": "Carrera Séptima Norte / Calle 170 (Usaquén - Portal Norte)",
+      "distancia_km": 7.10,
+      "velocidad_kmh": 40.0,
+      "factor_trafico": 1.15,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 26,
+      "origen": 16,
+      "destino": 17,
+      "nombre_via": "Av. Calle 170 / Av. Suba (Portal Norte - Portal Suba)",
+      "distancia_km": 6.10,
+      "velocidad_kmh": 42.0,
+      "factor_trafico": 1.15,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 27,
+      "origen": 8,
+      "destino": 17,
+      "nombre_via": "Av. Suba TransMilenio (El Campín / NQS - Portal Suba)",
+      "distancia_km": 11.80,
+      "velocidad_kmh": 44.0,
+      "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 28,
+      "origen": 10,
+      "destino": 18,
+      "nombre_via": "Av. Boyacá / Calle 80 (Jardín Botánico - Portal 80)",
+      "distancia_km": 5.10,
+      "velocidad_kmh": 42.0,
+      "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 29,
+      "origen": 17,
+      "destino": 18,
+      "nombre_via": "Av. Ciudad de Cali (Portal Suba - Portal 80)",
+      "distancia_km": 4.90,
+      "velocidad_kmh": 38.0,
+      "factor_trafico": 1.30,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 30,
+      "origen": 12,
+      "destino": 18,
+      "nombre_via": "Av. Ciudad de Cali / Calle 63 (Aeropuerto - Portal 80)",
+      "distancia_km": 4.50,
+      "velocidad_kmh": 40.0,
+      "factor_trafico": 1.15,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 31,
+      "origen": 8,
+      "destino": 18,
+      "nombre_via": "Av. Calle 80 (NQS / Polo - Portal de la 80)",
+      "distancia_km": 8.40,
+      "velocidad_kmh": 46.0,
+      "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 32,
+      "origen": 0,
+      "destino": 7,
+      "nombre_via": "Av. Calle 19 / Av. las Américas (Centro - Corferias)",
+      "distancia_km": 4.10,
+      "velocidad_kmh": 32.0,
+      "factor_trafico": 1.30,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 33,
+      "origen": 7,
+      "destino": 19,
+      "nombre_via": "Av. de las Américas (Corferias - Portal Américas)",
+      "distancia_km": 7.40,
+      "velocidad_kmh": 44.0,
+      "factor_trafico": 1.25,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 34,
+      "origen": 11,
+      "destino": 19,
+      "nombre_via": "Av. Boyacá Sur (Terminal Salitre - Portal Américas)",
+      "distancia_km": 5.30,
+      "velocidad_kmh": 42.0,
+      "factor_trafico": 1.30,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 35,
+      "origen": 19,
+      "destino": 20,
+      "nombre_via": "Av. Villavicencio / Av. Bosa (Portal Américas - Portal Sur)",
+      "distancia_km": 4.20,
+      "velocidad_kmh": 34.0,
+      "factor_trafico": 1.25,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 36,
+      "origen": 0,
+      "destino": 20,
+      "nombre_via": "Av. NQS Sur / Autopista Sur (Centro - Portal del Sur)",
+      "distancia_km": 9.30,
+      "velocidad_kmh": 42.0,
+      "factor_trafico": 1.35,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 37,
+      "origen": 20,
+      "destino": 21,
+      "nombre_via": "Av. Villavicencio Sur (Portal del Sur - UDistrital Tecnológica)",
+      "distancia_km": 3.10,
+      "velocidad_kmh": 32.0,
+      "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    }
+  ]
+}

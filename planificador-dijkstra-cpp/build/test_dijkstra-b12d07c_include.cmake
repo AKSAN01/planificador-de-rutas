@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/test_dijkstra-b12d07c_tests.cmake")
+  include("C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/test_dijkstra-b12d07c_tests.cmake")
+else()
+  add_test(test_dijkstra_NOT_BUILT-b12d07c test_dijkstra_NOT_BUILT-b12d07c)
+endif()

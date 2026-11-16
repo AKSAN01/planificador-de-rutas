@@ -1,0 +1,37 @@
+# ninja log v7
+3	92	8165672411912389	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-mkdir	12ecb6696211734d
+3	92	8165672411912389	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-mkdir	12ecb6696211734d
+93	30499	8165672716002468	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-download	8c99d26be7d946bc
+93	30499	8165672716002468	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-download	8c99d26be7d946bc
+5	202	8165674907270021	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-update	8f43fc2d774dbdd0
+5	202	8165674907270021	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-update	8f43fc2d774dbdd0
+202	299	8165674910135610	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-patch	2414e9c97c56fbb7
+202	299	8165674910135610	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-patch	2414e9c97c56fbb7
+299	393	8165674911079525	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure	e4421519de3cf1d3
+299	393	8165674911079525	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure	e4421519de3cf1d3
+393	487	8165674912018443	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build	ba24ac06406eac3d
+393	487	8165674912018443	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build	ba24ac06406eac3d
+488	589	8165674913032264	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-install	a06dd2f476e170b4
+488	589	8165674913032264	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-install	a06dd2f476e170b4
+590	695	8165674914088709	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test	45b43e4a455e6b62
+590	695	8165674914088709	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test	45b43e4a455e6b62
+696	829	8165674915439037	CMakeFiles/raylib-populate-complete	60e9cf88a174cf9
+696	829	8165674915439037	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-done	60e9cf88a174cf9
+696	829	8165674915439037	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate-complete	60e9cf88a174cf9
+696	829	8165674915439037	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-done	60e9cf88a174cf9
+3	158	8165675398937223	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-update	8f43fc2d774dbdd0
+3	158	8165675398937223	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-update	8f43fc2d774dbdd0
+158	237	8165675401209774	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-patch	2414e9c97c56fbb7
+158	237	8165675401209774	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-patch	2414e9c97c56fbb7
+238	312	8165675401954815	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure	e4421519de3cf1d3
+238	312	8165675401954815	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure	e4421519de3cf1d3
+312	383	8165675402667330	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build	ba24ac06406eac3d
+312	383	8165675402667330	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build	ba24ac06406eac3d
+383	456	8165675403405276	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-install	a06dd2f476e170b4
+383	456	8165675403405276	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-install	a06dd2f476e170b4
+456	527	8165675404116408	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test	45b43e4a455e6b62
+456	527	8165675404116408	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test	45b43e4a455e6b62
+527	626	8165675405104730	CMakeFiles/raylib-populate-complete	60e9cf88a174cf9
+527	626	8165675405104730	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-done	60e9cf88a174cf9
+527	626	8165675405104730	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate-complete	60e9cf88a174cf9
+527	626	8165675405104730	C:/Users/santy/Documents/6 semestre/Ciencias de la computacion 1/Proyecto/planificador-dijkstra-cpp/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-done	60e9cf88a174cf9
