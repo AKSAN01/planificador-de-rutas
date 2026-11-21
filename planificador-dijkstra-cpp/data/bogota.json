@@ -161,6 +161,104 @@
       "localidad": "Ciudad Bolívar",
       "latitud": 4.5721,
       "longitud": -74.1578
+    },
+    {
+      "id": 22,
+      "nombre": "Biblioteca El Tintal",
+      "localidad": "Kennedy",
+      "latitud": 4.6411,
+      "longitud": -74.1532
+    },
+    {
+      "id": 23,
+      "nombre": "Plaza de las Américas",
+      "localidad": "Kennedy",
+      "latitud": 4.6193,
+      "longitud": -74.1366
+    },
+    {
+      "id": 24,
+      "nombre": "Parque El Tunal",
+      "localidad": "Tunjuelito",
+      "latitud": 4.5755,
+      "longitud": -74.1247
+    },
+    {
+      "id": 25,
+      "nombre": "Parque de los Novios",
+      "localidad": "Barrios Unidos",
+      "latitud": 4.6517,
+      "longitud": -74.0844
+    },
+    {
+      "id": 26,
+      "nombre": "Humedal Santa María del Lago",
+      "localidad": "Engativá",
+      "latitud": 4.6954,
+      "longitud": -74.0942
+    },
+    {
+      "id": 27,
+      "nombre": "Plaza de Fontibón",
+      "localidad": "Fontibón",
+      "latitud": 4.6735,
+      "longitud": -74.1433
+    },
+    {
+      "id": 28,
+      "nombre": "Parque El Virrey",
+      "localidad": "Chapinero",
+      "latitud": 4.675,
+      "longitud": -74.0564
+    },
+    {
+      "id": 29,
+      "nombre": "Biblioteca Julio Mario Santo Domingo",
+      "localidad": "Suba",
+      "latitud": 4.7566,
+      "longitud": -74.0615
+    },
+    {
+      "id": 30,
+      "nombre": "Parque de Cedritos",
+      "localidad": "Usaquén",
+      "latitud": 4.7225,
+      "longitud": -74.0405
+    },
+    {
+      "id": 31,
+      "nombre": "Plaza de Restrepo",
+      "localidad": "Antonio Nariño",
+      "latitud": 4.5853,
+      "longitud": -74.1004
+    },
+    {
+      "id": 32,
+      "nombre": "Maloka",
+      "localidad": "Fontibón",
+      "latitud": 4.6558,
+      "longitud": -74.1093
+    },
+    {
+      "id": 33,
+      "nombre": "Parque de Modelia",
+      "localidad": "Fontibón",
+      "latitud": 4.6684,
+      "longitud": -74.1217
+    },
+    {
+      "id": 34,
+      "nombre": "Parque El Country",
+      "localidad": "Usaquén",
+      "latitud": 4.7067,
+      "longitud": -74.0433
+    },
+    {
+      "id": 35,
+      "nombre": "Parque de la Florida",
+      "localidad": "Engativá",
+      "latitud": 4.733,
+      "longitud": -74.146
     }
   ],
   "vias": [
@@ -579,6 +677,314 @@
       "distancia_km": 3.10,
       "velocidad_kmh": 32.0,
       "factor_trafico": 1.20,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 38,
+      "origen": 22,
+      "destino": 19,
+      "nombre_via": "Biblioteca El Tintal – Portal de las Américas",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 39,
+      "origen": 22,
+      "destino": 11,
+      "nombre_via": "Biblioteca El Tintal – Terminal de Transporte Salitre",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 40,
+      "origen": 23,
+      "destino": 19,
+      "nombre_via": "Plaza de las Américas – Portal de las Américas",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 41,
+      "origen": 23,
+      "destino": 20,
+      "nombre_via": "Plaza de las Américas – Portal del Sur",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 42,
+      "origen": 24,
+      "destino": 20,
+      "nombre_via": "Parque El Tunal – Portal del Sur",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 43,
+      "origen": 24,
+      "destino": 21,
+      "nombre_via": "Parque El Tunal – UDistrital - Facultad Tecnológica",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 44,
+      "origen": 25,
+      "destino": 8,
+      "nombre_via": "Parque de los Novios – Estadio El Campín / Movistar Arena",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 45,
+      "origen": 25,
+      "destino": 9,
+      "nombre_via": "Parque de los Novios – Parque Metropolitano Simón Bolívar",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 46,
+      "origen": 26,
+      "destino": 10,
+      "nombre_via": "Humedal Santa María del Lago – Jardín Botánico José Celestino Mutis",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 47,
+      "origen": 26,
+      "destino": 18,
+      "nombre_via": "Humedal Santa María del Lago – Portal de la 80",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 48,
+      "origen": 27,
+      "destino": 12,
+      "nombre_via": "Plaza de Fontibón – Aeropuerto Internacional El Dorado",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 49,
+      "origen": 27,
+      "destino": 22,
+      "nombre_via": "Plaza de Fontibón – Biblioteca El Tintal",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 50,
+      "origen": 28,
+      "destino": 13,
+      "nombre_via": "Parque El Virrey – Zona T / Calle 85",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 51,
+      "origen": 28,
+      "destino": 14,
+      "nombre_via": "Parque El Virrey – Parque de la 93",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 52,
+      "origen": 29,
+      "destino": 16,
+      "nombre_via": "Biblioteca Julio Mario Santo Domingo – Portal del Norte (Calle 175)",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 53,
+      "origen": 29,
+      "destino": 17,
+      "nombre_via": "Biblioteca Julio Mario Santo Domingo – Portal de Suba",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 54,
+      "origen": 30,
+      "destino": 15,
+      "nombre_via": "Parque de Cedritos – Plaza Fundacional de Usaquén",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 55,
+      "origen": 30,
+      "destino": 16,
+      "nombre_via": "Parque de Cedritos – Portal del Norte (Calle 175)",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 56,
+      "origen": 31,
+      "destino": 0,
+      "nombre_via": "Plaza de Restrepo – Plaza de Bolívar",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 57,
+      "origen": 31,
+      "destino": 24,
+      "nombre_via": "Plaza de Restrepo – Parque El Tunal",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 58,
+      "origen": 32,
+      "destino": 9,
+      "nombre_via": "Maloka – Parque Metropolitano Simón Bolívar",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 59,
+      "origen": 32,
+      "destino": 11,
+      "nombre_via": "Maloka – Terminal de Transporte Salitre",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 60,
+      "origen": 33,
+      "destino": 27,
+      "nombre_via": "Parque de Modelia – Plaza de Fontibón",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 61,
+      "origen": 33,
+      "destino": 32,
+      "nombre_via": "Parque de Modelia – Maloka",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 62,
+      "origen": 34,
+      "destino": 15,
+      "nombre_via": "Parque El Country – Plaza Fundacional de Usaquén",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 63,
+      "origen": 34,
+      "destino": 30,
+      "nombre_via": "Parque El Country – Parque de Cedritos",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 64,
+      "origen": 35,
+      "destino": 12,
+      "nombre_via": "Parque de la Florida – Aeropuerto Internacional El Dorado",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
+      "activa": true,
+      "bidireccional": true
+    },
+    {
+      "id": 65,
+      "origen": 35,
+      "destino": 18,
+      "nombre_via": "Parque de la Florida – Portal de la 80",
+      "distancia_km": 0,
+      "velocidad_kmh": 35,
+      "factor_trafico": 1,
       "activa": true,
       "bidireccional": true
     }

@@ -2,7 +2,7 @@
 
 Aplicación de escritorio interactiva desarrollada en **C++17** para el curso de **Ciencias de la Computación I** de la **Universidad Distrital Francisco José de Caldas**.
 
-El sistema modela **22 lugares emblemáticos de Bogotá** (incluyendo las sedes de la Universidad Distrital) y **38 corredores viales** como un grafo ponderado mediante **lista de adyacencia**, calcula la ruta óptima entre cualquier par de ubicaciones usando el **algoritmo de Dijkstra implementado desde cero** sobre un **Montículo Binario Mínimo (`MinHeap`) propio** con soporte `decrease-key` en tiempo $O((V + E) \log V)$, y permite visualizar tanto el mapa interactivo como la ejecución paso a paso (*snapshots*) del algoritmo.
+El sistema modela **36 lugares emblemáticos de Bogotá** (incluyendo las sedes de la Universidad Distrital) y **66 corredores viales** como un grafo ponderado mediante **lista de adyacencia**, calcula la ruta óptima entre cualquier par de ubicaciones usando el **algoritmo de Dijkstra implementado desde cero** sobre un **Montículo Binario Mínimo (`MinHeap`) propio** con soporte `decrease-key` en tiempo $O((V + E) \log V)$, y permite visualizar tanto el mapa interactivo como la ejecución paso a paso (*snapshots*) del algoritmo.
 
 ---
 
@@ -15,7 +15,7 @@ planificador-dijkstra-cpp/
 ├── assets/
 │   └── mapa_bogota.png          # Lienzo cartográfico de Bogotá (1280x720) con Bounding Box geográfico
 ├── data/
-│   └── bogota.json              # Dataset real con 22 lugares de Bogotá y 38 corredores viales
+│   └── bogota.json              # Red de simulación con 36 lugares de Bogotá y 66 corredores viales
 ├── include/
 │   ├── Modelos.hpp              # Structs: Lugar, Arista, ResultadoRuta, PasoDijkstra, CriterioPeso
 │   ├── Haversine.hpp            # Cálculo de distancia ortodrómica (km) y tiempo estimado (minutos)
@@ -46,7 +46,7 @@ planificador-dijkstra-cpp/
 3. **Visualizador Paso a Paso (*Snapshots* de Dijkstra)**:
    - Reproductor interactivo (`|< Inicio`, `< Anterior`, `Reproducir / Pausar`, `Siguiente >`, `Fin >|`) con control de velocidad y tabla en vivo de distancias tentativas $d[v]$ y predecesores $\pi[v]$.
 4. **Simulación de Cierres Viales y Tráfico en Tiempo Real**:
-   - Permite cerrar o habilitar cualquiera de las 38 vías de Bogotá (desde el panel lateral o haciendo clic derecho sobre la vía en el mapa) y ajustar el multiplicador de congestión vehicular.
+   - Permite cerrar o habilitar cualquiera de las 66 vías de Bogotá (desde el panel lateral o haciendo clic derecho sobre la vía en el mapa) y ajustar el multiplicador de congestión vehicular.
 
 ---
 
@@ -89,4 +89,7 @@ ctest --test-dir build --output-on-failure
 | **Cerrar / Abrir una Vía** | Clic derecho sobre la línea de la vía en el mapa (o Checkbox en el panel) |
 | **Acercar / Alejar (Zoom)** | Rueda del ratón sobre el mapa |
 | **Desplazar Mapa (Pan)** | Arrastrar con el botón central del ratón (o `Alt + Clic derecho`) |
-| **Restablecer Cámara** | Botón `Centrar Mapa` en el panel lateral |
+| **Restablecer Cámara** | Botón `Centrar` sobre el mapa |
+| **Agregar un punto** | Pulsa `+ Agregar punto`, escribe un nombre opcional y haz clic en el mapa. Se conecta a los tres lugares más cercanos y queda disponible durante la sesión. |
+| **Simular incidentes** | En el panel inferior, lanza meteoritos para cerrar vías al impactar o un trancón para elevar los tiempos de los tramos afectados a tres veces su tiempo base. |
+| **Eventos aleatorios** | Activa `Aleatorios` para alternar incidentes al azar. `Restablecer red` recupera la circulación inicial y conserva los puntos agregados durante la sesión. |

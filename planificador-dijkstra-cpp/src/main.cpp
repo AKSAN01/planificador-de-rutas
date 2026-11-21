@@ -14,6 +14,7 @@
 #include <cstdio>
 #include <filesystem>
 #include <limits>
+#include <random>
 #include <string>
 #include <unordered_set>
 #include <vector>
@@ -24,7 +25,9 @@ using namespace planificador;
 
 constexpr int ANCHO_VENTANA_INICIAL = 1400;
 constexpr int ALTO_VENTANA_INICIAL = 800;
-constexpr float ANCHO_PANEL_LATERAL = 460.0f;
+constexpr float ANCHO_PANEL_LATERAL = 390.0f;
+constexpr float ALTO_HERRAMIENTAS = 88.0f;
+constexpr float ALTO_EVENTOS = 104.0f;
 constexpr float ANCHO_MAPA_BASE = 1280.0f;
 constexpr float ALTO_MAPA_BASE = 720.0f;
 
@@ -34,6 +37,7 @@ constexpr float ALTO_MAPA_BASE = 720.0f;
 std::string resolverRutaArchivo(const std::string& rutaRelativa) {
     const std::vector<std::string> prefijos = {
         "",
+        GetApplicationDirectory(),
         "../",
         "../../",
         "planificador-dijkstra-cpp/",
@@ -239,7 +243,9 @@ int main() {
         ANCHO_VENTANA_INICIAL,
         ALTO_VENTANA_INICIAL,
         "Planificador de Rutas con Dijkstra (Bogotá D.C.) - UDistrital CCI");
+    SetWindowMinSize(1040, 680);
     SetTargetFPS(60);
+    SetExitKey(KEY_NULL); // Escape cancela la colocación antes de cerrar la ventana.
 
     rlImGuiSetup(true);
     aplicarTemaModernoImGui();
@@ -337,12 +343,86 @@ int main() {
         }
     };
 
+    const auto viasIniciales = grafo.obtenerAristas();
+    bool colocandoPunto = false;
+    char nombrePunto[80]{};
+    std::string avisoMapa;
+    std::mt19937 azar(std::random_device{}());
+    struct Meteoro {
+        int via;
+        Vector2 destino;
+        double impacto;
+        bool cayo;
+    };
+    std::vector<Meteoro> meteoros;
+    bool automaticos = false;
+    double siguienteEvento = 0;
+    std::string informeEvento = "Red en condiciones iniciales";
+
+    auto iniciarEvento = [&](bool lluvia) {
+        std::vector<int> candidatas;
+        for (const auto& via : grafo.obtenerAristas()) {
+            if (via.activa && (lluvia || via.factorTrafico < 3.0)) candidatas.push_back(via.id);
+        }
+        std::shuffle(candidatas.begin(), candidatas.end(), azar);
+        const int cantidad = std::min(static_cast<int>(candidatas.size()),
+                                      std::uniform_int_distribution<int>(8, 15)(azar));
+        if (!cantidad) {
+            informeEvento = "Sin vías disponibles. Restablece la circulación.";
+            return;
+        }
+        for (int i = 0; i < cantidad; ++i) {
+            const auto& via = *grafo.obtenerArista(candidatas[i]);
+            if (lluvia) {
+                const auto& a = *grafo.obtenerLugar(via.origen);
+                const auto& b = *grafo.obtenerLugar(via.destino);
+                const auto& box = grafo.obtenerBoundingBox();
+                Vector2 punto = proyectarCoordenada((a.latitud + b.latitud) / 2,
+                                                     (a.longitud + b.longitud) / 2, box);
+                meteoros.push_back({via.id, punto, GetTime() + 0.9 + i * 0.16, false});
+            } else {
+                grafo.establecerFactorTrafico(via.id, 3.0);
+            }
+        }
+        informeEvento = lluvia ? "Lluvia de meteoritos en curso" :
+            "Trancón masivo en " + std::to_string(cantidad) + " vías (tiempo de viaje ×3)";
+        if (!lluvia) recalcularRuta();
+    };
+
+    auto agregarPunto = [&](Vector2 punto) {
+        const auto& box = grafo.obtenerBoundingBox();
+        Vector2 superior = proyectarCoordenada(box.latMax, box.lonMin, box);
+        Vector2 inferior = proyectarCoordenada(box.latMin, box.lonMax, box);
+        if (!CheckCollisionPointRec(punto, {superior.x, superior.y, inferior.x-superior.x, inferior.y-superior.y})) {
+            avisoMapa = "Elige un lugar dentro del mapa.";
+            return;
+        }
+        double lon = box.lonMin + (punto.x-superior.x)/(inferior.x-superior.x)*(box.lonMax-box.lonMin);
+        double lat = box.latMax - (punto.y-superior.y)/(inferior.y-superior.y)*(box.latMax-box.latMin);
+        std::vector<std::pair<double,int>> vecinos;
+        for (const auto& lugar : grafo.obtenerLugares()) {
+            vecinos.emplace_back(Haversine::calcularDistanciaKm(lat, lon, lugar.latitud, lugar.longitud), lugar.id);
+        }
+        std::sort(vecinos.begin(), vecinos.end());
+        int id = static_cast<int>(grafo.capacidadNodos());
+        std::string nombre = nombrePunto[0] ? nombrePunto : "Punto " + std::to_string(id);
+        grafo.agregarLugar({id, nombre, "Personalizado", lat, lon});
+        for (size_t i = 0; i < std::min<size_t>(3, vecinos.size()); ++i) {
+            int vecino = vecinos[i].second;
+            grafo.agregarArista({-1, id, vecino, nombre + " – " + grafo.obtenerLugar(vecino)->nombre});
+        }
+        colocandoPunto = false;
+        nombrePunto[0] = 0;
+        avisoMapa = nombre + " agregado a la red";
+        recalcularRuta();
+    };
+
     // Cámara 2D para el lienzo del mapa
     Camera2D camaraMapa{};
     auto centrarCamara = [&]() {
         const float anchoDisponible = static_cast<float>(GetScreenWidth()) - ANCHO_PANEL_LATERAL;
-        const float altoDisponible = static_cast<float>(GetScreenHeight());
-        camaraMapa.offset = Vector2{anchoDisponible * 0.5f, altoDisponible * 0.5f};
+        const float altoDisponible = static_cast<float>(GetScreenHeight()) - ALTO_HERRAMIENTAS - ALTO_EVENTOS;
+        camaraMapa.offset = Vector2{ANCHO_PANEL_LATERAL + anchoDisponible * 0.5f, ALTO_HERRAMIENTAS + altoDisponible * 0.5f};
         camaraMapa.target = Vector2{ANCHO_MAPA_BASE * 0.5f, ALTO_MAPA_BASE * 0.5f};
         camaraMapa.rotation = 0.0f;
         const float escalaX = anchoDisponible / ANCHO_MAPA_BASE;
@@ -357,6 +437,25 @@ int main() {
         const float altoPantalla = static_cast<float>(GetScreenHeight());
         const float anchoAreaMapa = std::max(200.0f, anchoPantalla - ANCHO_PANEL_LATERAL);
 
+        if (IsWindowResized()) centrarCamara();
+        const double ahora = GetTime();
+        if (automaticos && ahora >= siguienteEvento && meteoros.empty()) {
+            iniciarEvento(std::bernoulli_distribution(0.5)(azar));
+            siguienteEvento = ahora + std::uniform_int_distribution<int>(20, 40)(azar);
+        }
+        bool huboImpacto = false;
+        for (auto& meteoro : meteoros) {
+            if (!meteoro.cayo && ahora >= meteoro.impacto) {
+                grafo.establecerEstadoVia(meteoro.via, false);
+                meteoro.cayo = true;
+                huboImpacto = true;
+            }
+        }
+        if (huboImpacto) recalcularRuta();
+        if (!meteoros.empty() && ahora > meteoros.back().impacto + 0.6) {
+            informeEvento = "Lluvia terminada · " + std::to_string(meteoros.size()) + " impactos";
+            meteoros.clear();
+        }
         // Avance automático del reproductor paso a paso
         if (modoPasoAPaso && reproduciendoPasos && !resultadoActual.pasos.empty()) {
             acumuladorTiempoPaso += dt * velocidadReproduccion;
@@ -373,12 +472,17 @@ int main() {
 
         // Interacción de ratón sobre el lienzo del mapa
         const Vector2 posRaton = GetMousePosition();
-        const bool ratonEnMapa = (posRaton.x < anchoAreaMapa) && !ImGui::GetIO().WantCaptureMouse;
+        const bool ratonEnMapa = (posRaton.x >= ANCHO_PANEL_LATERAL && posRaton.y >= ALTO_HERRAMIENTAS && posRaton.y < altoPantalla - ALTO_EVENTOS) && !ImGui::GetIO().WantCaptureMouse;
         const Vector2 posMundoRaton = GetScreenToWorld2D(posRaton, camaraMapa);
 
         int idNodoHover = -1;
         int idAristaHover = -1;
 
+        if (IsKeyPressed(KEY_ESCAPE) && !colocandoPunto && !ImGui::GetIO().WantCaptureKeyboard) break;
+        if (IsKeyPressed(KEY_ESCAPE) && colocandoPunto) {
+            colocandoPunto = false;
+            avisoMapa.clear();
+        }
         if (ratonEnMapa) {
             const float rueda = GetMouseWheelMove();
             if (std::abs(rueda) > 0.001f) {
@@ -427,7 +531,10 @@ int main() {
             }
 
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-                if (idNodoHover != -1) {
+                if (colocandoPunto) {
+                    if (idNodoHover == -1) agregarPunto(posMundoRaton);
+                    else avisoMapa = "Elige un espacio libre entre los puntos.";
+                } else if (idNodoHover != -1) {
                     if (IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_RIGHT_SHIFT)) {
                         idDestino = idNodoHover;
                     } else {
@@ -451,6 +558,9 @@ int main() {
             }
         }
 
+        if (ratonEnMapa) SetMouseCursor(colocandoPunto ? MOUSE_CURSOR_CROSSHAIR :
+            ((idNodoHover >= 0 || idAristaHover >= 0) ? MOUSE_CURSOR_POINTING_HAND : MOUSE_CURSOR_DEFAULT));
+
         std::unordered_set<int> aristasEnCaminoOptimo(
             resultadoActual.caminoAristas.begin(), resultadoActual.caminoAristas.end());
         std::unordered_set<int> nodosEnCaminoOptimo(
@@ -473,7 +583,7 @@ int main() {
         BeginDrawing();
         ClearBackground(Color{11, 16, 26, 255});
 
-        BeginScissorMode(0, 0, static_cast<int>(anchoAreaMapa), static_cast<int>(altoPantalla));
+        BeginScissorMode(int(ANCHO_PANEL_LATERAL), int(ALTO_HERRAMIENTAS), int(anchoAreaMapa), int(altoPantalla - ALTO_HERRAMIENTAS - ALTO_EVENTOS));
         BeginMode2D(camaraMapa);
 
         // 1. Fondo del mapa de Bogotá
@@ -508,7 +618,7 @@ int main() {
             const bool enArbolPaso = pasoActivo && (aristasArbolPaso.count(arista.id) > 0);
 
             if (!arista.activa) {
-                dibujarLineaDiscontinua(p1, p2, esHover ? 4.2f : 2.8f, Color{239, 68, 68, 215});
+                dibujarLineaDiscontinua(p1, p2, (esHover ? 6.0f : 4.5f) / camaraMapa.zoom, Color{239, 68, 68, 215});
                 const Vector2 medio = Vector2Lerp(p1, p2, 0.5f);
                 DrawCircleV(medio, 7.5f, Color{185, 28, 28, 245});
                 DrawTextEx(fuenteMapa, "X", Vector2{medio.x - 4.0f, medio.y - 6.0f}, 13.0f, 0.0f, WHITE);
@@ -516,7 +626,7 @@ int main() {
             }
 
             Color colorVia = Color{100, 140, 190, 165};
-            float grosorVia = 2.8f;
+            float grosorVia = 4.0f;
 
             if (arista.factorTrafico >= 1.30) {
                 colorVia = Color{235, 125, 55, 190};
@@ -535,15 +645,22 @@ int main() {
                 grosorVia = 6.0f;
             }
             if (enCaminoOptimo) {
-                DrawLineEx(p1, p2, 10.5f, Color{16, 185, 129, 80});
+                DrawLineEx(p1, p2, 12.0f / camaraMapa.zoom, Color{16, 185, 129, 80});
                 colorVia = Color{52, 211, 153, 255};
-                grosorVia = 5.2f;
+                grosorVia = 7.0f;
             } else if (esHover) {
                 colorVia = Color{220, 238, 255, 250};
                 grosorVia += 1.6f;
             }
 
-            DrawLineEx(p1, p2, grosorVia, colorVia);
+            DrawLineEx(p1, p2, (grosorVia + 2) / camaraMapa.zoom, Color{12, 23, 37, 225});
+            DrawLineEx(p1, p2, grosorVia / camaraMapa.zoom, colorVia);
+            if (arista.factorTrafico >= 3.0) {
+                for (int i = 0; i < 4; ++i) {
+                    const float fase = 0.30f + 0.085f * i + 0.02f * std::sin(tiempoAnim);
+                    DrawCircleV(Vector2Lerp(p1, p2, fase), 2.8f / camaraMapa.zoom, ORANGE);
+                }
+            }
 
             if (mostrarPesosAristas) {
                 const Vector2 medio = Vector2Lerp(p1, p2, 0.5f);
@@ -580,7 +697,17 @@ int main() {
             }
         }
 
-        // 4. Dibujar lugares (nodos) y etiquetas redondeadas con tipografía limpia
+        // Reservar espacio para origen y destino antes de colocar nombres secundarios.
+        std::vector<Rectangle> etiquetasVisibles;
+        auto espacioEtiqueta = [&](const Lugar& lugar, float tam) {
+            const Vector2 p = proyectarCoordenada(lugar.latitud, lugar.longitud, grafo.obtenerBoundingBox());
+            const Vector2 dim = MeasureTextEx(fuenteMapa, lugar.nombre.c_str(), tam, 0.5f);
+            return Rectangle{p.x - dim.x / 2 - 12, p.y - dim.y - 30, dim.x + 24, dim.y + 24};
+        };
+        for (int id : {idOrigen, idDestino, idNodoHover}) {
+            if (const auto* lugar = grafo.obtenerLugar(id))
+                etiquetasVisibles.push_back(espacioEtiqueta(*lugar, 14.5f / camaraMapa.zoom));
+        }
         for (const auto& lugar : grafo.obtenerLugares()) {
             const Vector2 pos = proyectarCoordenada(
                 lugar.latitud, lugar.longitud, grafo.obtenerBoundingBox());
@@ -631,7 +758,14 @@ int main() {
             DrawCircleV(pos, radio, colorNodo);
 
             if (mostrarEtiquetasNodos || esOrigen || esDestino || esHover) {
-                const float tamTexto = (esOrigen || esDestino || esHover) ? 14.5f : 13.0f;
+                const bool destacada = esOrigen || esDestino || esHover;
+                const float tamTexto = (destacada ? 14.5f : 12.0f) / camaraMapa.zoom;
+                if (!destacada) {
+                    const Rectangle area = espacioEtiqueta(lugar, tamTexto);
+                    if (std::any_of(etiquetasVisibles.begin(), etiquetasVisibles.end(),
+                                    [&](Rectangle otra) { return CheckCollisionRecs(area, otra); })) continue;
+                    etiquetasVisibles.push_back(area);
+                }
                 Color colTexto = Color{232, 240, 252, 255};
                 Color colFondo = Color{13, 20, 34, 215};
                 Color colBorde = Color{55, 85, 130, 170};
@@ -659,41 +793,18 @@ int main() {
             }
         }
 
+        for (const auto& meteoro : meteoros) {
+            const float t = static_cast<float>(meteoro.impacto - ahora);
+            if (t > 0.85f || t < -0.55f) continue;
+            if (t > 0) {
+                Vector2 cabeza{meteoro.destino.x - 180*t, meteoro.destino.y - 340*t};
+                DrawLineEx({cabeza.x - 25, cabeza.y - 47}, cabeza, 7, Color{251, 129, 46, 225});
+                DrawCircleV(cabeza, 5, Color{255, 235, 154, 255});
+            } else {
+                DrawRing(meteoro.destino, 5-50*t, 8-50*t, 0, 360, 36, Fade(ORANGE, 1+t/0.55f));
+            }
+        }
         EndMode2D();
-
-        // 5. Tarjeta HUD flotante superior izquierda con bordes redondeados y tipografía Segoe UI
-        const Rectangle hudRect{14.0f, 14.0f, 425.0f, 98.0f};
-        DrawRectangleRounded(hudRect, 0.22f, 10, Color{13, 20, 33, 232});
-        DrawRectangleRoundedLinesEx(hudRect, 0.22f, 10, 1.5f, Color{59, 130, 246, 165});
-        DrawTextEx(
-            fuenteMapa,
-            "MAPA VIAL INTERACTIVO DE BOGOTÁ D.C.",
-            Vector2{28.0f, 22.0f},
-            16.5f,
-            0.5f,
-            Color{96, 185, 255, 255});
-        DrawTextEx(
-            fuenteMapa,
-            "• Clic Izq en nodo: Origen    • Clic Der en nodo: Destino",
-            Vector2{28.0f, 45.0f},
-            13.5f,
-            0.4f,
-            Color{215, 226, 242, 255});
-        DrawTextEx(
-            fuenteMapa,
-            "• Clic Der en vía: Cerrar/Abrir vía   • Rueda: Zoom   • Central: Mover",
-            Vector2{28.0f, 64.0f},
-            13.5f,
-            0.4f,
-            Color{185, 202, 225, 255});
-
-        DrawCircleV(Vector2{34.0f, 92.0f}, 5.5f, Color{16, 215, 135, 255});
-        DrawTextEx(fuenteMapa, "Origen / Ruta Óptima", Vector2{45.0f, 84.0f}, 13.5f, 0.4f, Color{195, 240, 218, 255});
-        DrawCircleV(Vector2{188.0f, 92.0f}, 5.5f, Color{248, 85, 85, 255});
-        DrawTextEx(fuenteMapa, "Destino / Cerrada", Vector2{199.0f, 84.0f}, 13.5f, 0.4f, Color{250, 205, 205, 255});
-        DrawCircleV(Vector2{326.0f, 92.0f}, 5.5f, Color{56, 189, 248, 255});
-        DrawTextEx(fuenteMapa, "Explorados", Vector2{337.0f, 84.0f}, 13.5f, 0.4f, Color{195, 230, 250, 255});
-
         // 6. Tooltip flotante moderno al pasar el ratón sobre un nodo o vía
         if (idNodoHover != -1) {
             const Lugar* l = grafo.obtenerLugar(idNodoHover);
@@ -702,7 +813,7 @@ int main() {
                 std::snprintf(linea1, sizeof(linea1), "#%d  %s", l->id, l->nombre.c_str());
                 std::snprintf(linea2, sizeof(linea2), "Localidad: %s", l->localidad.c_str());
                 std::snprintf(linea3, sizeof(linea3), "Coordenadas: Lat %.4f, Lon %.4f", l->latitud, l->longitud);
-                const float bx = std::min(posRaton.x + 16.0f, anchoAreaMapa - 305.0f);
+                const float bx = std::min(posRaton.x + 16.0f, anchoPantalla - 305.0f);
                 const float by = std::max(16.0f, posRaton.y - 76.0f);
                 const Rectangle tipRect{bx, by, 295.0f, 70.0f};
                 DrawRectangleRounded(tipRect, 0.25f, 8, Color{10, 16, 28, 245});
@@ -723,7 +834,7 @@ int main() {
                     a->distanciaKm,
                     a->velocidadPromedioKmh,
                     a->obtenerPeso(CriterioPeso::TIEMPO_MINUTOS));
-                const float bx = std::min(posRaton.x + 16.0f, anchoAreaMapa - 355.0f);
+                const float bx = std::min(posRaton.x + 16.0f, anchoPantalla - 355.0f);
                 const float by = std::max(16.0f, posRaton.y - 58.0f);
                 const Rectangle tipRect{bx, by, 345.0f, 52.0f};
                 DrawRectangleRounded(tipRect, 0.25f, 8, Color{10, 16, 28, 245});
@@ -738,44 +849,32 @@ int main() {
         // ==================== PANEL LATERAL MODERNO (DEAR IMGUI) ====================
         rlImGuiBegin();
 
-        ImGui::SetNextWindowPos(ImVec2(anchoAreaMapa, 0.0f), ImGuiCond_Always);
+        ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiCond_Always);
         ImGui::SetNextWindowSize(ImVec2(ANCHO_PANEL_LATERAL, altoPantalla), ImGuiCond_Always);
         ImGui::Begin(
             "##PanelControlDijkstra",
             nullptr,
             ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
 
-        // Encabezado Institucional Moderno
-        ImGui::BeginChild("CardEncabezado", ImVec2(0.0f, 96.0f), ImGuiChildFlags_Borders);
-        if (fuenteTituloUI) ImGui::PushFont(fuenteTituloUI);
-        ImGui::TextColored(ImVec4(0.38f, 0.75f, 1.0f, 1.0f), "Planificador Vial de Bogotá");
+        ImGui::TextDisabled("BOGOTÁ D.C.  /  MOVILIDAD");
+        if (fuenteTituloUI) ImGui::PushFont(fuenteTituloUI, 22.0f);
+        ImGui::TextUnformatted("Planificador de rutas");
         if (fuenteTituloUI) ImGui::PopFont();
-        ImGui::TextDisabled("Universidad Distrital Francisco José de Caldas • CCI");
+        ImGui::TextDisabled("%zu puntos   ·   %zu vías", grafo.numeroLugares(), grafo.numeroAristas());
         ImGui::Spacing();
-        if (ImGui::Button("Centrar Mapa", ImVec2(125.0f, 28.0f))) {
-            centrarCamara();
-        }
-        ImGui::SameLine();
-        ImGui::Checkbox("Etiquetas", &mostrarEtiquetasNodos);
-        ImGui::SameLine();
-        ImGui::Checkbox("Pesos en Vías", &mostrarPesosAristas);
-        ImGui::EndChild();
-
-        ImGui::Spacing();
-
         // Barra de Pestañas Moderna
         if (ImGui::BeginTabBar("TabsNavegacion", ImGuiTabBarFlags_None)) {
 
             // =========================================================================
             // PESTAÑA 1: PLANIFICADOR DE RUTA Y RESULTADOS
             // =========================================================================
-            if (ImGui::BeginTabItem("Ruta y Destinos")) {
+            if (ImGui::BeginTabItem("Ruta")) {
                 ImGui::Spacing();
 
                 // Tarjeta de Selección de Puntos
-                ImGui::BeginChild("CardSeleccion", ImVec2(0.0f, 198.0f), ImGuiChildFlags_Borders);
+                ImGui::BeginChild("CardSeleccion", ImVec2(0.0f, 222.0f), ImGuiChildFlags_Borders);
                 if (fuenteNegritaUI) ImGui::PushFont(fuenteNegritaUI);
-                ImGui::TextColored(ImVec4(0.55f, 0.82f, 1.0f, 1.0f), "Puntos de Viaje y Optimización");
+                ImGui::TextColored(ImVec4(0.55f, 0.82f, 1.0f, 1.0f), "Planear recorrido");
                 if (fuenteNegritaUI) ImGui::PopFont();
                 ImGui::Spacing();
 
@@ -835,6 +934,7 @@ int main() {
                 if (resultadoActual.encontrada) {
                     const float anchoCol = (ImGui::GetContentRegionAvail().x - 8.0f) * 0.5f;
 
+                    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(12, 9));
                     ImGui::BeginChild("KPI_Distancia", ImVec2(anchoCol, 68.0f), ImGuiChildFlags_Borders);
                     ImGui::TextDisabled("DISTANCIA TOTAL");
                     if (fuenteTituloUI) ImGui::PushFont(fuenteTituloUI);
@@ -866,6 +966,7 @@ int main() {
                     ImGui::TextColored(ImVec4(0.85f, 0.70f, 1.0f, 1.0f), "%zu tramos", resultadoActual.caminoAristas.size());
                     if (fuenteNegritaUI) ImGui::PopFont();
                     ImGui::EndChild();
+                    ImGui::PopStyleVar();
 
                     ImGui::Spacing();
 
@@ -877,6 +978,7 @@ int main() {
                     ImGui::Separator();
                     ImGui::Spacing();
 
+                    ImGui::PushTextWrapPos(0);
                     for (std::size_t i = 0; i < resultadoActual.caminoNodos.size(); ++i) {
                         const Lugar* l = grafo.obtenerLugar(resultadoActual.caminoNodos[i]);
                         if (!l) continue;
@@ -899,13 +1001,14 @@ int main() {
                             }
                         }
                     }
+                    ImGui::PopTextWrapPos();
                     ImGui::EndChild();
                 } else {
                     ImGui::BeginChild("CardSinRuta", ImVec2(0.0f, 90.0f), ImGuiChildFlags_Borders);
                     if (fuenteNegritaUI) ImGui::PushFont(fuenteNegritaUI);
                     ImGui::TextColored(ImVec4(1.0f, 0.40f, 0.40f, 1.0f), "Ruta Inalcanzable");
                     if (fuenteNegritaUI) ImGui::PopFont();
-                    ImGui::TextWrapped("No existe un camino activo entre el origen y el destino seleccionados. Revisa las vías cerradas en la pestaña 'Vías y Tráfico'.");
+                    ImGui::TextWrapped("Reabre un tramo en Vías o elige otro destino.");
                     ImGui::EndChild();
                 }
 
@@ -915,7 +1018,7 @@ int main() {
             // =========================================================================
             // PESTAÑA 2: REPRODUCTOR PASO A PASO DE DIJKSTRA (SNAPSHOTS)
             // =========================================================================
-            if (ImGui::BeginTabItem("Paso a Paso (Dijkstra)")) {
+            if (ImGui::BeginTabItem("Dijkstra")) {
                 ImGui::Spacing();
 
                 ImGui::BeginChild("CardReproductor", ImVec2(0.0f, 235.0f), ImGuiChildFlags_Borders);
@@ -1043,7 +1146,7 @@ int main() {
             // =========================================================================
             // PESTAÑA 3: GESTOR DE CIERRE DE VÍAS Y TRÁFICO
             // =========================================================================
-            if (ImGui::BeginTabItem("Vías y Tráfico")) {
+            if (ImGui::BeginTabItem("Vías")) {
                 ImGui::Spacing();
 
                 ImGui::BeginChild("CardControlesVias", ImVec2(0.0f, 96.0f), ImGuiChildFlags_Borders);
@@ -1122,6 +1225,76 @@ int main() {
         }
 
         ImGui::End();
+        const auto panelFijo = ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
+                               ImGuiWindowFlags_NoSavedSettings;
+        ImGui::SetNextWindowPos({ANCHO_PANEL_LATERAL, 0});
+        ImGui::SetNextWindowSize({anchoAreaMapa, ALTO_HERRAMIENTAS});
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {14, 8});
+        ImGui::Begin("Herramientas del mapa", nullptr, panelFijo);
+        ImGui::AlignTextToFramePadding();
+        ImGui::TextColored({0.43f,0.83f,0.98f,1}, "Mapa vial");
+        ImGui::SameLine();
+        if (ImGui::Button("Centrar")) centrarCamara();
+        ImGui::SameLine();
+        ImGui::Checkbox("Nombres", &mostrarEtiquetasNodos);
+        ImGui::SameLine();
+        ImGui::Checkbox("Pesos", &mostrarPesosAristas);
+        ImGui::SameLine();
+        if (ImGui::Button(colocandoPunto ? "Cancelar" : "+ Agregar punto")) {
+            colocandoPunto = !colocandoPunto;
+            avisoMapa.clear();
+        }
+        if (colocandoPunto) {
+            ImGui::SetNextItemWidth(175);
+            ImGui::InputTextWithHint("##nombrePunto", "Nombre (opcional)", nombrePunto, sizeof(nombrePunto));
+            ImGui::SameLine();
+            ImGui::TextUnformatted(avisoMapa.empty() ? "Haz clic en un espacio libre del mapa." : avisoMapa.c_str());
+        } else {
+            ImGui::TextDisabled("%s", avisoMapa.empty() ?
+                "Clic: origen   ·   Clic derecho: destino o cierre   ·   Rueda: zoom   ·   Central: mover" : avisoMapa.c_str());
+        }
+        ImGui::End();
+
+        ImGui::SetNextWindowPos({ANCHO_PANEL_LATERAL, altoPantalla - ALTO_EVENTOS});
+        ImGui::SetNextWindowSize({anchoAreaMapa, ALTO_EVENTOS});
+        ImGui::Begin("Simulación de eventos", nullptr, panelFijo);
+        ImGui::TextColored({0.43f,0.83f,0.98f,1}, "Eventos de la red");
+        ImGui::SameLine();
+        ImGui::TextDisabled("%s", informeEvento.c_str());
+        ImGui::BeginDisabled(!meteoros.empty());
+        if (ImGui::Button("Lluvia de meteoritos")) iniciarEvento(true);
+        ImGui::SameLine();
+        if (ImGui::Button("Trancón masivo")) iniciarEvento(false);
+        ImGui::EndDisabled();
+        ImGui::SameLine();
+        if (ImGui::Checkbox("Aleatorios", &automaticos)) siguienteEvento = ahora + 20;
+        ImGui::SameLine();
+        if (ImGui::Button("Restablecer red")) {
+            meteoros.clear();
+            automaticos = false;
+            grafo.activarTodasLasVias();
+            for (const auto& via : grafo.obtenerAristas()) grafo.establecerFactorTrafico(via.id, 1.0);
+            for (const auto& via : viasIniciales) {
+                grafo.establecerEstadoVia(via.id, via.activa);
+                grafo.establecerFactorTrafico(via.id, via.factorTrafico);
+            }
+            informeEvento = "Circulación inicial restablecida";
+            recalcularRuta();
+        }
+        const auto& vias = grafo.obtenerAristas();
+        const auto cerradas = std::count_if(vias.begin(), vias.end(), [](const Arista& a){ return !a.activa; });
+        const auto saturadas = std::count_if(vias.begin(), vias.end(), [](const Arista& a){ return a.activa && a.factorTrafico >= 3; });
+        ImGui::TextColored({0.25f, 0.89f, 0.65f, 1}, "Ruta óptima");
+        ImGui::SameLine();
+        ImGui::TextColored({1, 0.57f, 0.38f, 1}, "  %d con trancón masivo", int(saturadas));
+        ImGui::SameLine();
+        ImGui::TextColored({1, 0.44f, 0.45f, 1}, "  %d vías cerradas", int(cerradas));
+        if (automaticos) {
+            ImGui::SameLine();
+            ImGui::TextDisabled("  Siguiente evento en %d s", int(std::ceil(std::max(0.0, siguienteEvento - ahora))));
+        }
+        ImGui::End();
+        ImGui::PopStyleVar();
         rlImGuiEnd();
 
         EndDrawing();
